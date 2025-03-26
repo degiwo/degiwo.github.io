@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>degiwo</title>
+    <title>Hochzeit</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>degiwo</h1>
+    <div class="lang-switch">
+        <select id="langSelect" onchange="changeLanguage(this.value)">
+            <option value="de">DEU</option>
+            <option value="ru">РУС</option>
+            <option value="zh">粵語</option>
+            <option value="en">ENG</option>
+        </select>
+    </div>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" 
+                data-de="Start" 
+                data-ru="Начало" 
+                data-zh="主頁" 
+                data-en="Home">Start</a></li>
+            <li><a href="#story" 
+                data-de="Unsere Geschichte" 
+                data-ru="Наша История" 
+                data-zh="我們的故事" 
+                data-en="Our Story">Unsere Geschichte</a></li>
+            <li><a href="#details" 
+                data-de="Details" 
+                data-ru="Детали" 
+                data-zh="詳情" 
+                data-en="Details">Details</a></li>
+            <li><a href="#rsvp" 
+                data-de="Zusagen" 
+                data-ru="Подтверждение" 
+                data-zh="參加確認" 
+                data-en="RSVP">Zusagen</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Mariya & Detlef</h1>
+        <p class="date" 
+            data-de="20. August 2024" 
+            data-ru="20 августа 2024" 
+            data-zh="2024年8月20日" 
+            data-en="August 20, 2024">20. August 2024</p>
+    </section>
+
+    <section id="story" class="story">
+        <h2>Unsere Geschichte</h2>
+        <div class="story-content">
+            <p>Hier beginnt unsere Geschichte...</p>
+        </div>
+    </section>
+
+    <section id="details" class="details">
+        <h2>Hochzeitsdetails</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Trauung</h3>
+                <p>16:00 Uhr</p>
+                <p>St. Marien Kirche</p>
+                <p>Kirchstraße 123</p>
+            </div>
+            <div class="detail-card">
+                <h3>Feier</h3>
+                <p>18:00 Uhr</p>
+                <p>Hotel zur Post</p>
+                <p>Hauptstraße 456</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp" class="rsvp">
+        <h2>Zusagen</h2>
+        <form id="rsvp-form">
+            <input type="text" placeholder="Ihr Name" required>
+            <input type="email" placeholder="Ihre E-Mail" required>
+            <select required>
+                <option value="">Werden Sie teilnehmen?</option>
+                <option value="yes">Ja, gerne</option>
+                <option value="no">Leider nein</option>
+            </select>
+            <button type="submit">Absenden</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mariyas & Detlefs Hochzeit</p>
+    </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
