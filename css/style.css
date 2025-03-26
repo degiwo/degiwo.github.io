@@ -11,6 +11,11 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* Adjust based on navbar height */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
@@ -52,7 +57,7 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/hero-bg.jpg');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/flowers-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -67,6 +72,30 @@ h1, h2, h3 {
 .hero .date {
     font-size: 1.5rem;
     font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+}
+
+.countdown {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-item span {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.countdown-item .label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
 }
 
 section {
@@ -79,16 +108,10 @@ section h2 {
     color: var(--primary-color);
 }
 
-.story-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
+/* Remove story-content class */
 
 .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
+    max-width: 500px;
     margin: 2rem auto;
 }
 
@@ -152,6 +175,18 @@ footer {
 
     .hero h1 {
         font-size: 2.5rem;
+    }
+
+    .countdown {
+        gap: 1rem;
+    }
+    
+    .countdown-item span {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-item .label {
+        font-size: 0.8rem;
     }
 }
 
