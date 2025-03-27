@@ -79,12 +79,26 @@ h1, h2, h3 {
     display: flex;
     gap: 2rem;
     margin-top: 1rem;
+    position: relative;
 }
 
 .countdown-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.countdown-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .countdown-item span {
@@ -111,18 +125,32 @@ section h2 {
 /* Remove story-content class */
 
 .details-grid {
-    max-width: 500px;
+    max-width: 1200px;
     margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
 }
 
 .detail-card {
     padding: 2rem;
-    background: #f9f9f9;
+    background: white;
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .detail-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.detail-card i {
+    font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
@@ -178,15 +206,35 @@ footer {
     }
 
     .countdown {
-        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 1rem;
+        max-width: 100%;
+    }
+    
+    .countdown-item {
+        padding: 0;
+        min-width: 70px;  /* Reduced from previous value */
+        width: calc(50% - 2rem);  /* 2 items per row with gap consideration */
+    }
+    
+    .countdown-item:not(:last-child)::after {
+        display: none;  /* Remove divider lines on mobile */
     }
     
     .countdown-item span {
-        font-size: 1.5rem;
+        font-size: 2rem;  /* Slightly smaller numbers */
     }
     
     .countdown-item .label {
         font-size: 0.8rem;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
     }
 }
 
@@ -253,4 +301,74 @@ footer {
 
 .lang-switch select:hover {
     background-color: #c0a090;
+}
+
+.schedule {
+    padding: 4rem 2rem;
+    background-color: #fafafa;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 80px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ddd;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.time {
+    width: 80px;
+    padding-right: 20px;
+    text-align: right;
+    font-weight: bold;
+    color: #666;
+}
+
+.event {
+    flex-grow: 1;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.event i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.event .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.event h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    width: 100%;
+}
+
+.event p {
+    margin: 0;
+    color: #666;
 }
