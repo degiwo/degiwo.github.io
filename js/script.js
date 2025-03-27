@@ -8,21 +8,37 @@ function changeLanguage(lang) {
     document.querySelectorAll('[data-de][data-ru][data-zh][data-en]').forEach(element => {
         element.textContent = element.getAttribute(`data-${currentLang}`);
     });
+
+    // Update placeholders
+    document.querySelectorAll('[data-de-placeholder]').forEach(element => {
+        element.placeholder = element.getAttribute(`data-${currentLang}-placeholder`);
+    });
+}
+
+function isValidEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email === '' || emailPattern.test(email);  // empty is valid since it's optional
 }
 
 document.getElementById('rsvp-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const name = event.target[0].value;
-    const email = event.target[1].value;
     const attendance = event.target[2].value;
+    const email = event.target[3].value;
 
-    if (name && email && attendance) {
-        alert(`Thank you, ${name}! Your RSVP has been received.`);
-        event.target.reset();
-    } else {
-        alert('Please fill out all fields before submitting.');
+    if (!name || !attendance) {
+        alert('Please fill out all required fields before submitting.');
+        return;
     }
+
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address or leave it empty.');
+        return;
+    }
+
+    alert(`Thank you, ${name}! Your RSVP has been received.`);
+    event.target.reset();
 });
 
 // Add smooth scroll handling
@@ -42,11 +58,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Countdown Timer
-const weddingDate = new Date('2026-08-29T18:00:00').getTime();
+const weddingDate = '2026-08-29T16:00:00';  // Wedding start time in German local time
 
 function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+    const now = new Date();
+    // Convert both dates to German time
+    const berlinTime = now.toLocaleString('en-US', { timeZone: 'Europe/Berlin' });
+    const currentTime = new Date(berlinTime).getTime();
+    const weddingTime = new Date(weddingDate).getTime();
+    
+    const distance = weddingTime - currentTime;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

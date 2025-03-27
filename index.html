@@ -35,6 +35,11 @@
                 data-ru="Расписание" 
                 data-zh="日程" 
                 data-en="Schedule">Tagesablauf</a></li>
+            <li><a href="#arrival" 
+                data-de="Anreise" 
+                data-ru="Как добраться" 
+                data-zh="交通住宿" 
+                data-en="Travel & Stay">Anreise</a></li>
             <li><a href="#rsvp" 
                 data-de="Zusagen" 
                 data-ru="Подтверждение" 
@@ -197,18 +202,167 @@
         </div>
     </section>
 
+    <section id="arrival" class="arrival">
+        <h2 data-de="Anreise & Übernachtung" 
+            data-ru="Как добраться и где остановиться" 
+            data-zh="交通和住宿" 
+            data-en="Travel & Accommodation">Anreise & Übernachtung</h2>
+        
+        <div class="arrival-grid">
+            <div class="arrival-card">
+                <i class="fas fa-car"></i>
+                <h3 data-de="Mit dem Auto" 
+                    data-ru="На машине" 
+                    data-zh="自駕車" 
+                    data-en="By Car">Mit dem Auto</h3>
+                <p data-de="Parkplätze vorhanden"
+                   data-ru="Парковка доступна"
+                   data-zh="提供停車場"
+                   data-en="Parking available">Parkplätze vorhanden</p>
+                <p>GPS: 48.137154, 11.576124</p>
+            </div>
+
+            <div class="arrival-card">
+                <i class="fas fa-train"></i>
+                <h3 data-de="Mit der Bahn" 
+                    data-ru="На поезде" 
+                    data-zh="乘坐火車" 
+                    data-en="By Train">Mit der Bahn</h3>
+                <p data-de="Hauptbahnhof München (2km)"
+                   data-ru="Центральный вокзал Мюнхена (2км)"
+                   data-zh="慕尼黑中央車站（2公里）"
+                   data-en="Munich Central Station (2km)">Hauptbahnhof München (2km)</p>
+                <p>Bus 100 → Hotel zur Post</p>
+            </div>
+
+            <div class="arrival-card">
+                <i class="fas fa-bed"></i>
+                <h3 data-de="Übernachtung" 
+                    data-ru="Проживание" 
+                    data-zh="住宿" 
+                    data-en="Accommodation">Übernachtung</h3>
+                <p data-de="Zimmer im Hotel zur Post" 
+                   data-ru="Номера в отеле Post" 
+                   data-zh="Post酒店客房" 
+                   data-en="Rooms at Hotel zur Post">Zimmer im Hotel zur Post</p>
+                <p data-de="Sonderpreis mit Code: WEDDING2026" 
+                   data-ru="Специальная цена по коду: WEDDING2026" 
+                   data-zh="優惠代碼：WEDDING2026" 
+                   data-en="Special rate with code: WEDDING2026">Sonderpreis mit Code: WEDDING2026</p>
+            </div>
+        </div>
+    </section>
+
     <section id="rsvp" class="rsvp">
-        <h2>Zusagen</h2>
+        <h2 data-de="Zusagen" 
+            data-ru="Подтверждение" 
+            data-zh="參加確認" 
+            data-en="RSVP">Zusagen</h2>
         <form id="rsvp-form">
-            <input type="text" placeholder="Ihr Name" required>
-            <input type="email" placeholder="Ihre E-Mail" required>
-            <select required>
-                <option value="">Werden Sie teilnehmen?</option>
-                <option value="yes">Ja, gerne</option>
-                <option value="no">Leider nein</option>
+            <input type="text" 
+                placeholder="Ihr Name *" 
+                required 
+                class="required"
+                data-de-placeholder="Ihr Name *"
+                data-ru-placeholder="Ваше имя *"
+                data-zh-placeholder="您的姓名 *"
+                data-en-placeholder="Your Name *">
+            <label for="attendance" data-de="Werden Sie teilnehmen? *" 
+                    data-ru="Вы придёте? *" 
+                    data-zh="您會參加嗎？*" 
+                    data-en="Will you attend? *">Werden Sie teilnehmen? *</label>
+            <select id="attendance" required class="required">
+                <option value="">-</option>
+                <option value="yes" 
+                    data-de="Ja, gerne" 
+                    data-ru="Да, с удовольствием" 
+                    data-zh="是的，很樂意" 
+                    data-en="Yes, gladly">Ja, gerne</option>
+                <option value="no" 
+                    data-de="Leider nein" 
+                    data-ru="К сожалению, нет" 
+                    data-zh="抱歉，不能參加" 
+                    data-en="Unfortunately no">Leider nein</option>
             </select>
-            <button type="submit">Absenden</button>
+            <input type="email" 
+                placeholder="Ihre E-Mail (optional)"
+                data-de-placeholder="Ihre E-Mail (optional)"
+                data-ru-placeholder="Ваш E-mail (необязательно)"
+                data-zh-placeholder="電子郵件（可選）"
+                data-en-placeholder="Your Email (optional)">
+            <input type="tel" 
+                placeholder="Telefon (optional)"
+                data-de-placeholder="Telefon (optional)"
+                data-ru-placeholder="Телефон (необязательно)"
+                data-zh-placeholder="電話（可選）"
+                data-en-placeholder="Phone (optional)">
+            <textarea 
+                placeholder="Kommentare oder Nachricht (optional)" 
+                rows="3"
+                data-de-placeholder="Kommentare oder Nachricht (optional)"
+                data-ru-placeholder="Комментарии или сообщение (необязательно)"
+                data-zh-placeholder="評論或留言（可選）"
+                data-en-placeholder="Comments or message (optional)"></textarea>
+            <small class="required-note" 
+                data-de="* Pflichtfeld"
+                data-ru="* Обязательное поле"
+                data-zh="* 必填欄位"
+                data-en="* Required field">* Pflichtfeld</small>
+            <button type="submit" 
+                data-de="Absenden"
+                data-ru="Отправить"
+                data-zh="提交"
+                data-en="Submit">Absenden</button>
         </form>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 data-de="Kontakt" 
+            data-ru="Контакты" 
+            data-zh="聯繫方式" 
+            data-en="Contact">Kontakt</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="profile-pic mariya"></div>
+                <div class="contact-info">
+                    <h3>Mariya</h3>
+                    <p><i class="fas fa-phone"></i> +49 123 456789</p>
+                    <p><i class="fas fa-envelope"></i> mariya@example.com</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="profile-pic detlef"></div>
+                <div class="contact-info">
+                    <h3>Detlef</h3>
+                    <p><i class="fas fa-phone"></i> +49 987 654321</p>
+                    <p><i class="fas fa-envelope"></i> detlef@example.com</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="profile-pic anna"></div>
+                <div class="contact-info">
+                    <h3 data-de="Trauzeugin" 
+                        data-ru="Свидетельница" 
+                        data-zh="伴娘" 
+                        data-en="Best Woman">Trauzeugin</h3>
+                    <p class="name">Anna</p>
+                    <p><i class="fas fa-phone"></i> +49 123 123123</p>
+                    <p><i class="fas fa-envelope"></i> anna@example.com</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="profile-pic max"></div>
+                <div class="contact-info">
+                    <h3 data-de="Trauzeuge" 
+                        data-ru="Свидетель" 
+                        data-zh="伴郎" 
+                        data-en="Best Man">Trauzeuge</h3>
+                    <p class="name">Max</p>
+                    <p><i class="fas fa-phone"></i> +49 321 321321</p>
+                    <p><i class="fas fa-envelope"></i> max@example.com</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
